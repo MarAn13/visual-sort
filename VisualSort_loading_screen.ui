@@ -59,10 +59,10 @@ QLabel {
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>170</x>
      <y>90</y>
-     <width>131</width>
-     <height>111</height>
+     <width>128</width>
+     <height>128</height>
     </rect>
    </property>
    <property name="text">
@@ -74,7 +74,7 @@ QLabel {
   </widget>
  </widget>
  <resources>
-  <include location="VisualSort_Qt_SFML.qrc"/>
+  <include location="VisualSort.qrc"/>
  </resources>
  <connections/>
 </ui>
