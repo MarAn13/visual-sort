@@ -13,7 +13,7 @@ VisualSort_SFML::VisualSort_SFML(const int number_of_el, const int delay, const 
 		int monitor_height = info.rcMonitor.bottom - info.rcMonitor.top;
 		float scale = 0.5;
 		window.create(sf::VideoMode(monitor_width * scale, monitor_height * scale), "Visual sort", sf::Style::Titlebar | sf::Style::Close);
-		if (!font.loadFromFile(font_file)) {
+		if (!font.loadFromFile(path_to_font + font_file)) {
 			throw std::exception("Font file was not found");
 		}
 		text.setFont(font);
