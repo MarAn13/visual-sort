@@ -58,8 +58,66 @@ VisualSort_SFML::VisualSort_SFML(const int number_of_el, const int delay, const 
 	}
 }
 
+VisualSort_SFML::VisualSort_SFML()
+	:number_of_el(100), delay(1), sort_num(0), option_sound(true), parent(nullptr) {
+	try {
+		HWND hd = GetDesktopWindow();
+		HMONITOR monitor = MonitorFromWindow(hd, MONITOR_DEFAULTTONEAREST);
+		MONITORINFO info;
+		info.cbSize = sizeof(MONITORINFO);
+		GetMonitorInfo(monitor, &info);
+		int monitor_width = info.rcMonitor.right - info.rcMonitor.left;
+		int monitor_height = info.rcMonitor.bottom - info.rcMonitor.top;
+		float scale = 0.5;
+		window.create(sf::VideoMode(monitor_width * scale, monitor_height * scale), "Visual sort", sf::Style::Titlebar | sf::Style::Close);
+		if (!font.loadFromFile(path_to_font + font_file)) {
+			throw std::exception("Font file was not found");
+		}
+		text.setFont(font);
+		int character_size = 30;
+		text.setCharacterSize(character_size);
+		lines = new sf::RectangleShape[number_of_el];
+		int num_of_title_lines = 4;
+		double info_height = (static_cast<double>(text.getCharacterSize()) + text.getLineSpacing()) * (static_cast<double>(num_of_title_lines) + 1);
+		std::random_device rd;
+		std::mt19937 mt(rd());
+		std::uniform_real_distribution<double> dist(1, static_cast<double>(window.getSize().y) - info_height);
+		double line_width = static_cast<double>(window.getSize().x) / static_cast<double>(number_of_el);
+		for (int i = 0; i < number_of_el; i++) {
+			lines[i] = sf::RectangleShape(sf::Vector2f(line_width, dist(mt)));
+		}
+		file_buffers = new sf::SoundBuffer[num_of_sound_files];
+		sound = new sf::Sound[num_of_sound_files];
+		sound_transition_index = new int[num_of_sound_files];
+		for (int i = 0; i < num_of_sound_files; ++i) {
+			sf::SoundBuffer buffer;
+			std::string file = path_to_sound + file_location[i];
+			if (!buffer.loadFromFile(file)) {
+				const char* file_exception = ("Sound file " + file + " was not found").c_str();
+				throw std::exception(file_exception);
+			}
+			file_buffers[i] = buffer;
+			sf::Sound sound_temp;
+			sound_temp.setBuffer(file_buffers[i]);
+			sound[i] = sound_temp;
+			sound_transition_index[i] = static_cast<int>(ceil(static_cast<double>(number_of_el) / num_of_sound_files * (static_cast<double>(i) + 1)));
+		}
+		global_start = std::chrono::system_clock::now();
+		display_sort(sort_num);
+	}
+	catch (std::exception& e) {
+		if (parent) {
+			QMessageBox::critical(parent, "Error", e.what());
+		}
+		else {
+			std::cout << e.what() << std::endl;
+		}
+	}
+}
+
 VisualSort_SFML::~VisualSort_SFML()
 {
+	delete[] lines, file_buffers, sound, sound_transition_index;
 }
 
 void VisualSort_SFML::draw()

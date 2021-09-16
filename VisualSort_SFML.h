@@ -12,13 +12,14 @@
 class VisualSort_SFML {
 public:
 	VisualSort_SFML(const int number_of_el, const int delay, const int sort_num, const bool option_sound, QWidget* parent = nullptr);
+	VisualSort_SFML();
 	~VisualSort_SFML();
 private:
 	QWidget* parent;
 	sf::RenderWindow window;
 	sf::Font font;
-	std::string path_to_font = "media/font/";
-	std::string font_file = "Roboto-Regular.ttf";
+	const std::string path_to_font = "media/font/";
+	const std::string font_file = "Roboto-Regular.ttf";
 	sf::Text text;
 	const int number_of_el;
 	const int delay;
@@ -27,9 +28,9 @@ private:
 	int el_changes = 0;
 	sf::Event event;
 	sf::RectangleShape* lines;
-	std::string path_to_sound = "media/sound/";
-	int num_of_sound_files = 7;
-	std::string file_location[7] = { "piano-c_C_major.wav", "piano-d_D_major.wav", "piano-e_E_major.wav",
+	const std::string path_to_sound = "media/sound/";
+	const int num_of_sound_files = 7;
+	const std::string file_location[7] = { "piano-c_C_major.wav", "piano-d_D_major.wav", "piano-e_E_major.wav",
 		"piano-f_F_major.wav", "piano-g_G_major.wav", "piano-a_A_major.wav", "piano-b_B_major.wav" };
 	sf::SoundBuffer* file_buffers;
 	sf::Sound* sound;
