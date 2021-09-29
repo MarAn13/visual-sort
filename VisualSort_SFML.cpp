@@ -36,8 +36,8 @@ VisualSort_SFML::VisualSort_SFML(const int number_of_el, const int delay, const 
 			sf::SoundBuffer buffer;
 			std::string file = path_to_sound + file_location[i];
 			if (!buffer.loadFromFile(file)) {
-				const char* file_exception = ("Sound file " + file + " was not found").c_str();
-				throw std::exception(file_exception);
+				std::string file_exception = "Sound file " + file + " was not found";
+				throw std::exception(file_exception.c_str());
 			}
 			file_buffers[i] = buffer;
 			sf::Sound sound_temp;
