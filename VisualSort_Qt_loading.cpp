@@ -20,7 +20,7 @@ void VisualSort_Qt_loading::update_pixelmap()
 {
 	QPixmap pix;
 
-	if (pix.load(QString::fromStdString(path_to_folder + file_paths[current_path]))) {
+	if (pix.load(QString::fromStdString(qrc_prefix + path_to_folder + file_paths[current_path]))) {
 		pix = pix.scaled(ui->label->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
 		ui->label->setPixmap(pix);
 		if (current_path == file_paths_num - 1) {

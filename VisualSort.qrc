@@ -1,4 +1,38 @@
 <RCC>
-    <qresource prefix="VisualSort">
-    </qresource>
+  <qresource prefix="/visual_sort">
+    <file>media/sort_anim/sort_state_1.png</file>
+    <file>media/sort_anim/sort_state_2_0.png</file>
+    <file>media/sort_anim/sort_state_2_1.png</file>
+    <file>media/sort_anim/sort_state_3_0.png</file>
+    <file>media/sort_anim/sort_state_3_1.png</file>
+    <file>media/sort_anim/sort_state_4_0.png</file>
+    <file>media/sort_anim/sort_state_4_1.png</file>
+    <file>media/sort_anim/sort_state_5_0.png</file>
+    <file>media/sort_anim/sort_state_5_1.png</file>
+    <file>media/sort_anim/sort_state_6_0.png</file>
+    <file>media/sort_anim/sort_state_6_1.png</file>
+    <file>media/sort_anim/sort_state_7_0.png</file>
+    <file>media/sort_anim/sort_state_7_1.png</file>
+    <file>media/sort_anim/sort_state_8_0.png</file>
+    <file>media/sort_anim/sort_state_8_1.png</file>
+    <file>media/sort_anim/sort_state_9_0.png</file>
+    <file>media/sort_anim/sort_state_9_1.png</file>
+    <file>media/sort_anim/sort_state_10_0.png</file>
+    <file>media/sort_anim/sort_state_10_1.png</file>
+    <file>media/sort_anim/sort_state_11_0.png</file>
+    <file>media/sort_anim/sort_state_11_1.png</file>
+    <file>media/sort_anim/sort_state_12_0.png</file>
+    <file>media/sort_anim/sort_state_12_1.png</file>
+    <file>media/font/Roboto-Regular.ttf</file>
+    <file>media/sound/piano-a_A_major.wav</file>
+    <file>media/sound/piano-b_B_major.wav</file>
+    <file>media/sound/piano-c_C_major.wav</file>
+    <file>media/sound/piano-d_D_major.wav</file>
+    <file>media/sound/piano-e_E_major.wav</file>
+    <file>media/sound/piano-f_F_major.wav</file>
+    <file>media/sound/piano-g_G_major.wav</file>
+    <file>media/resources/check_mark.svg</file>
+    <file>media/resources/up_arrow.svg</file>
+    <file>media/resources/down_arrow.svg</file>
+  </qresource>
 </RCC>

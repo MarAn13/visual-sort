@@ -59,7 +59,7 @@ QSpinBox::up-button {
 }
 
 QSpinBox::up-arrow {
-	image: url(C:/Users/marem/Downloads/vectorpaint (9).svg);
+	image: url(&quot;:visual_sort/media/resources/up_arrow.svg&quot;);
 }
 
 QSpinBox::down-button {
@@ -71,7 +71,7 @@ QSpinBox::down-button {
 }
 
 QSpinBox::down-arrow {
-	image: url(C:/Users/marem/Downloads/vectorpaint (10).svg);
+	image: url(&quot;:visual_sort/media/resources/down_arrow.svg&quot;);
 }
 
 QComboBox {
@@ -97,7 +97,7 @@ QCheckBox::indicator {
 }
 
 QCheckBox::indicator:checked {
-	image: url(C:/Users/marem/Downloads/vectorpaint (5).svg);
+	image: url(&quot;:visual_sort/media/resources/check_mark.svg&quot;);
 }
 
 QSlider::groove:horizontal {
@@ -338,7 +338,7 @@ QPushButton::hover {
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="VisualSort_Qt_SFML.qrc"/>
+  <include location="VisualSort.qrc"/>
  </resources>
  <connections/>
 </ui>
